@@ -30,7 +30,7 @@
     "@react-email/components": "^0.0.12",
     "@uploadthing/react": "^6.0.2",
     "date-fns": "^2.30.0",
-    "lucia": "^2.7.4",
+    "lucia": "^2.7.5",
     "lucide-react": "^0.294.0",
     "nanoid": "^5.0.4",
     "next": "14.0.4",
