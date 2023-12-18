@@ -11,7 +11,7 @@ export const sendMail = async ({ toMail, data }: SendMailProps) => {
 
   //@ts-expect-error text field is required
   await resend.emails.send({
-    from: `ChadNext App <chadnext@moinulmoin.com>`,
+    from: `Kozocom <benitdev@gmail.com>`,
     to: toMail,
     subject: subject,
     headers: {
