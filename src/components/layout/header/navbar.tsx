@@ -20,16 +20,9 @@ export default function Navbar({ loggedInUser }: { loggedInUser: User }) {
           height="30"
           className="mr-2 rounded-sm object-contain"
         />
-        <p>ChadNext</p>
       </Link>
-      <div className="hidden items-center gap-12 md:flex 2xl:gap-16">
+      {/* <div className="hidden items-center gap-12 md:flex 2xl:gap-16">
         <div className="space-x-4 text-center text-sm leading-loose text-muted-foreground md:text-left">
-          <Link
-            href="/changelog"
-            className="font-semibold hover:underline hover:underline-offset-4"
-          >
-            Changelog
-          </Link>
           <Link
             href="/about"
             className="font-semibold hover:underline hover:underline-offset-4"
@@ -46,6 +39,13 @@ export default function Navbar({ loggedInUser }: { loggedInUser: User }) {
             </Link>
           )}
         </div>
+      </div> */}
+      <div className="">
+        <h1>
+          <span>Kozocom</span>
+          <span className="px-1">-</span>
+          End of year
+        </h1>
       </div>
       <Sheet open={isModalOpen} onOpenChange={setIsModalOpen}>
         <SheetTrigger className="md:hidden">

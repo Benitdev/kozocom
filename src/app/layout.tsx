@@ -1,16 +1,16 @@
 import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-import Footer from "~/components/layout/footer";
-import Header from "~/components/layout/header";
+// import Footer from "~/components/layout/footer";
+// import Header from "~/components/layout/header";
 import ThemeProvider from "~/components/shared/theme-provider";
 import { Toaster } from "~/components/ui/toaster";
 import { siteConfig } from "~/config/site";
 
-import Script from "next/script";
-import * as process from "process";
+// import Script from "next/script";
+// import * as process from "process";
 import { cn } from "~/lib/utils";
-import "./globals.css";
+import "~/styles/globals.css";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -101,12 +101,12 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
+          {/* <Header /> */}
           <main>
             {children}
             {loginDialog}
           </main>
-          <Footer />
+          {/* <Footer /> */}
           <Toaster />
         </ThemeProvider>
       </body>
