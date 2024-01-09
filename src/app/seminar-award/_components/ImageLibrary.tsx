@@ -35,7 +35,7 @@ const ImageLibrary = () => {
         clientX: Math.random() * 1500 + 100,
         clientY: Math.random() * 700,
       });
-    }, 1000);
+    }, 1500);
 
     return () => {
       clearInterval(timer);
@@ -136,7 +136,7 @@ const ImageLibrary = () => {
                 stiffness: 70,
               },
             }}
-            className="pointer-events-none absolute h-[300px] w-[250px]"
+            className="pointer-events-none absolute h-[320px] w-[270px]"
             style={{
               x: "-50%",
               y: "-50%",
