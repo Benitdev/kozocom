@@ -6,7 +6,7 @@ import type { Engine } from "tsparticles-engine";
 import ParticlesContainer from "react-particles";
 import { loadFull } from "tsparticles";
 
-const CongratulationParticles = () => {
+const CongratulationParticles = ({ id }: { id?: string }) => {
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
 
@@ -18,7 +18,7 @@ const CongratulationParticles = () => {
 
   return (
     <ParticlesContainer
-      id="tsparticles-congratulation"
+      id={id ?? "ahihi"}
       className="absolute inset-0"
       init={particlesInit}
       width="100%"

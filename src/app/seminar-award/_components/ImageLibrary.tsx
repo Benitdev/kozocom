@@ -6,14 +6,13 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
 export const images = [
-  "/images/seminar/1. Poster Flutter.png",
-  "/images/seminar/1. Poster gRPC.png",
-  "/images/seminar/1. Poster Hasura.png",
-  "/images/seminar/1. Poster Security.png",
-  "/images/seminar/1. Poster SEO.png",
-  "/images/seminar/1. Poster Svelte.png",
-  "/images/seminar/1. Poster WebSocket.png",
-  "/images/seminar/1. Poster Laravel Caching.jpg",
+  "/images/seminar/Doan_Bao.jpeg",
+  "/images/seminar/Qui_Thom.jpeg",
+  "/images/seminar/Thien_Sang.png",
+  "/images/seminar/ThienLP.jpeg",
+  "/images/seminar/Trung.jpeg",
+  "/images/seminar/TrungLT.jpeg",
+  "/images/seminar/TuanNH.jpeg",
 ];
 
 let posX: number = 0;
