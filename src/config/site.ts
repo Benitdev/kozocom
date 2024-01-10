@@ -1,11 +1,11 @@
 const siteUrl =
-  process.env.NEXT_PUBLIC_APP_URL || "https://chadnext.moinulmoin.com";
+  process.env.NEXT_PUBLIC_APP_URL || "https://kozocom.vercel.app";
 
 export const siteConfig = {
-  name: "ChadNext",
+  name: "Kozocom",
   url: siteUrl,
   ogImage: `${siteUrl}/opengraph-image`,
-  description: "Quick Starter Template for your Next.js project.",
+  description: "Kozocom.",
   links: {
     twitter: "https://twitter.com/immoinulmoin",
     github: "https://github.com/moinulmoin/chadnext",
