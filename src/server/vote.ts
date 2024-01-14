@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import db from "~/lib/db";
 
-export async function vote(data: string) {
+export async function vote(data: { username: string; voteId: string }) {
   const header = headers();
   const ipAddress = (header.get("x-forwarded-for") ?? "127.0.0.1").split(
     ","
@@ -14,9 +14,9 @@ export async function vote(data: string) {
   try {
     await db.vote.create({
       data: {
-        userId: "ahihi",
+        userId: data.username,
         ipAddress,
-        votedId: data,
+        votedId: data.voteId,
       },
     });
     revalidatePath("/end-of-year");

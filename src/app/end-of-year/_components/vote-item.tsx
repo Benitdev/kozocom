@@ -16,15 +16,14 @@ export default function VoteItem({
   description,
   selected,
 }: Props) {
-  console.log(id, image);
   return (
     <Button
       as={"div"}
-      borderRadius="1.75rem"
       className="border-slate-800 p-1"
       duration={4000}
+      containerClassName="h-full"
     >
-      <Card className="relative h-full w-full cursor-pointer border-none bg-transparent">
+      <Card className="relative h-full w-full cursor-pointer border-none bg-transparent ">
         <CardHeader>{title}</CardHeader>
         <CardContent>{description}</CardContent>
       </Card>
