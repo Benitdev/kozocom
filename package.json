@@ -31,7 +31,7 @@
     "@react-email/components": "^0.0.12",
     "@tsparticles/engine": "^3.0.3",
     "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.0.3",
+    "@tsparticles/slim": "^3.1.0",
     "@uploadthing/react": "^6.1.0",
     "date-fns": "^2.30.0",
     "framer-motion": "^10.17.9",
