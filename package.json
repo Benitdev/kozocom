@@ -29,7 +29,7 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.5",
     "@react-email/components": "^0.0.12",
-    "@tsparticles/engine": "^3.0.3",
+    "@tsparticles/engine": "^3.1.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.0.3",
     "@uploadthing/react": "^6.1.0",
