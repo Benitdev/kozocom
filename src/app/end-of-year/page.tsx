@@ -1,32 +1,33 @@
-import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import React from "react";
+import Header from "~/app/end-of-year/_components/header";
 import { Hero } from "~/app/end-of-year/_components/hero";
 import { VoteForm } from "~/app/end-of-year/_components/vote-form";
+import { getPageSession } from "~/lib/auth";
 import db from "~/lib/db";
 
 export default async function EndOfYearPage() {
-  const header = headers();
-  const ipAddress = (header.get("x-forwarded-for") ?? "127.0.0.1").split(
-    ","
-  )[0];
+  const session = await getPageSession();
 
-  await db.vote.findFirst({
+  if (!session) redirect("/login");
+
+  const res = await db.vote.findFirst({
     where: {
-      ipAddress,
+      userId: session.userId,
     },
   });
 
-  // if (res)
-  //   return (
-  //     <div className="flex h-screen items-center justify-center">
-  //       Cám ơn bạn đã bình chọn tiết mục!
-  //     </div>
-  //   );
-
   return (
     <section className="space-y-4 px-5 pb-20">
+      <Header />
       <Hero headingContent="bình chọn tiết mục văn nghệ" />
-      <VoteForm />
+      {res ? (
+        <p className="text-center text-xl font-bold uppercase text-blue-400">
+          Cám ơn bạn đã bình chọn!
+        </p>
+      ) : (
+        <VoteForm />
+      )}
     </section>
   );
 }

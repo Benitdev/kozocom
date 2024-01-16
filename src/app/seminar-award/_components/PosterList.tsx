@@ -17,6 +17,7 @@ type Props = {
 function PosterList({ showResult, showOne, starting, showFinal }: Props) {
   console.log(showFinal);
   const [showTwo, setShowTwo] = useState(false);
+  const [showResultDelay, setShowResultDelay] = useState(false);
   const [changeLayout, setChangeLayout] = useState(false);
   const [score1, setScore1] = useState(0);
   const [score2, setScore2] = useState(0);
@@ -38,7 +39,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
   useEffect(() => {
     if (starting && !showOne) {
       timer2.current = setInterval(() => {
-        setScore1(Math.ceil(Math.random() * 30));
+        setScore1(Math.ceil(Math.random() * 21));
       }, 100);
     }
     if (showOne) {
@@ -50,7 +51,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
   useEffect(() => {
     if (starting && !showOne) {
       timer.current = setInterval(() => {
-        setScore2(Math.ceil(Math.random() * 30));
+        setScore2(Math.ceil(Math.random() * 21));
       }, 100);
     }
     if (showOne) {
@@ -62,7 +63,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
   useEffect(() => {
     if (starting && !showOne) {
       timer3.current = setInterval(() => {
-        setScore3(Math.ceil(Math.random() * 30));
+        setScore3(Math.ceil(Math.random() * 16));
       }, 100);
     }
     if (showOne) {
@@ -74,7 +75,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
   useEffect(() => {
     if (starting && !showOne) {
       timer4.current = setInterval(() => {
-        setScore4(Math.ceil(Math.random() * 30));
+        setScore4(Math.ceil(Math.random() * 16));
       }, 100);
     }
     if (showOne) {
@@ -82,21 +83,23 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
       setScore4(2);
     }
   }, [starting, showOne]);
-
   useEffect(() => {
-    if (showOne) setTimeout(() => setShowTwo(true), 1000);
+    if (showOne) setTimeout(() => setShowTwo(true), 1700);
   }, [showOne]);
+  useEffect(() => {
+    if (showResult) setTimeout(() => setShowResultDelay(true), 1500);
+  }, [showResult]);
 
   return (
     <div
       className={cn(
-        `grid grid-cols-4 ${
+        `grid shrink-0 grid-cols-4 px-10 ${
           !changeLayout ? "" : "h-3/5"
-        } w-[90%] max-w-6xl gap-x-8 gap-y-4 ${
-          showResult ? "h-[55dvh]" : "h-[67dvh]"
+        } w-[90%] max-w-5xl gap-x-6 gap-y-4 xl:max-w-7xl ${
+          showResultDelay ? "h-[55dvh]" : "h-[69dvh]"
         }`,
         {
-          "translate-x-1/4 delay-1000": showTwo,
+          "translate-x-1/4": showTwo,
         }
       )}
     >
@@ -148,7 +151,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                     duration: 1,
                     delay: 3,
                   }}
-                  className="flex flex-col items-center justify-center gap-1 p-2 pt-0"
+                  className="flex flex-col items-center justify-center px-2 leading-5"
                 >
                   <motion.span className="tracking-widest text-cyan-400">
                     Trần Quang Quí
@@ -171,7 +174,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                     duration: 1,
                     delay: 3,
                   }}
-                  className="mt-auto text-xl text-[#e0ccbb]"
+                  className="mt-auto  text-[#e0ccbb]"
                 >
                   {!starting ? "?" : score3} / 16 số phiếu
                 </motion.div>
@@ -255,13 +258,13 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                 y: 30,
                 opacity: 1,
               }}
-              className="text-center text-xl font-bold tracking-widest text-[#e0ccbb]"
+              className="text-center  font-bold tracking-widest text-[#e0ccbb]"
             >
               Nhất quý 3
             </motion.div>
           )}
         </motion.div>
-        {!showTwo && (
+        {!showOne && (
           <motion.div
             key={5}
             initial={{
@@ -269,11 +272,12 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
               opacity: 0,
             }}
             animate={{
-              y: showOne ? 50 : 0,
+              y: 0,
               opacity: 1,
             }}
             exit={{
-              y: 500,
+              // y: 500,
+              scale: 2,
               opacity: 0,
               transition: {
                 delay: 0.5,
@@ -330,7 +334,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                       duration: 1,
                       delay: 3,
                     }}
-                    className="mt-auto text-xl text-[#e0ccbb]"
+                    className="mt-auto text-[#e0ccbb]"
                   >
                     {!starting ? "?" : score4} / 16 số phiếu
                   </motion.div>
@@ -367,7 +371,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                 y: 30,
                 opacity: 1,
               }}
-              className="text-center text-xl font-bold tracking-widest text-[#e0ccbb]"
+              className="text-center  font-bold tracking-widest text-[#e0ccbb]"
             >
               Nhất quí 3
             </motion.div>
@@ -536,7 +540,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                     duration: 1,
                     delay: 3,
                   }}
-                  className="mt-auto text-xl text-[#e0ccbb]"
+                  className="mt-auto  text-[#e0ccbb]"
                 >
                   {!starting ? "?" : score1} / 21 số phiếu
                 </motion.div>
@@ -621,13 +625,13 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                 y: 30,
                 opacity: 1,
               }}
-              className="text-center text-xl font-bold tracking-widest text-[#e0ccbb]"
+              className="text-center  font-bold tracking-widest text-[#e0ccbb]"
             >
               Nhất quý 4
             </motion.div>
           )}
         </motion.div>
-        {!showTwo && (
+        {!showOne && (
           <motion.div
             layoutId="poster2"
             key={7}
@@ -637,12 +641,12 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
               opacity: 0,
             }}
             animate={{
-              y: showOne ? 50 : 0,
+              y: 0,
               x: 0,
               opacity: 1,
             }}
             exit={{
-              y: 500,
+              scale: 2,
               opacity: 0,
               transition: {
                 delay: 0.5,
@@ -700,7 +704,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                       duration: 1,
                       delay: 3,
                     }}
-                    className="mt-auto text-xl text-[#e0ccbb]"
+                    className="mt-auto text-[#e0ccbb]"
                   >
                     {!starting ? "?" : score2} / 21 số phiếu
                   </motion.div>
@@ -738,7 +742,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                 y: 30,
                 opacity: 1,
               }}
-              className="text-center text-xl font-bold tracking-widest text-[#e0ccbb]"
+              className="text-center  font-bold tracking-widest text-[#e0ccbb]"
             >
               Giải nhì
             </motion.div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent, CardHeader } from "~/components/ui/card";
 import { Button } from "~/components/ui/ui-button";
 
@@ -19,16 +20,25 @@ export default function VoteItem({
   return (
     <Button
       as={"div"}
-      className="border-slate-800 p-1"
+      className="border-slate-800/40 bg-slate-900/40"
       duration={4000}
       containerClassName="h-full"
     >
-      <Card className="relative h-full w-full cursor-pointer border-none bg-transparent ">
-        <CardHeader>{title}</CardHeader>
-        <CardContent>{description}</CardContent>
+      <Card className="relative h-full w-full cursor-pointer border-none bg-transparent">
+        <CardContent className="grid h-full grid-cols-3 gap-4 p-0">
+          <div className="relative">
+            <Image src={"/custom-logo-company-white.png"} alt={title} fill />
+          </div>
+          <div className="col-span-2 space-y-2 p-6">
+            <h3 className="text-2xl font-extrabold text-blue-500">{title}</h3>
+            <p className="text-xl font-bold uppercase text-slate-400">
+              {description}
+            </p>
+          </div>
+        </CardContent>
       </Card>
       {selected && (
-        <div className="absolute inset-0 rounded-[1.5rem] bg-cyan-500/30"></div>
+        <div className="absolute inset-0 rounded-[1.5rem] bg-blue-700/20"></div>
       )}
     </Button>
   );

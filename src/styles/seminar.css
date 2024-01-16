@@ -50,7 +50,7 @@ body {
     #e0dd7f 100%
   );
   background-clip: text;
-  text-fill-color: transparent;
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

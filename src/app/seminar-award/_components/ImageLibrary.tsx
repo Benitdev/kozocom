@@ -32,8 +32,8 @@ const ImageLibrary = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       handleMouseMove({
-        clientX: Math.random() * 1500 + 100,
-        clientY: Math.random() * 700,
+        clientX: Math.random() * (window.innerWidth - 270) + 135,
+        clientY: Math.random() * (window.innerHeight - 320) + 160,
       });
     }, 1500);
 
@@ -86,8 +86,8 @@ const ImageLibrary = () => {
           duration: 1.5,
         }}
       >
-        <h2 className="my-10 text-center text-[7vw] leading-none tracking-[10px] opacity-75">
-          Best Seminar Presentation Award
+        <h2 className="my-10 text-center text-[6vw] leading-none tracking-[10px] opacity-75">
+          Best Seminar Presentation Award 3rd & 4th Quarter 2023
         </h2>
       </motion.div>
       <motion.div

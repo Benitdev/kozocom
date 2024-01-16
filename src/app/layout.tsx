@@ -10,7 +10,9 @@ import { siteConfig } from "~/config/site";
 // import Script from "next/script";
 // import * as process from "process";
 import { cn } from "~/lib/utils";
+
 import "~/styles/globals.css";
+import "~/styles/seminar.css";
 
 const fontSans = Inter({
   subsets: ["latin"],

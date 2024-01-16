@@ -16,11 +16,11 @@ export default function AuthForm() {
         </Button>
       ) : (
         <Link
-          href="/api/auth/login/github"
+          href="/api/auth/login/google"
           className={cn(buttonVariants({ variant: "outline" }))}
           onClick={() => setIsLoading(true)}
         >
-          Continue with <Icons.gitHub className="ml-2 h-4 w-4" />
+          Continue with <Icons.google className="ml-2 h-4 w-4" />
         </Link>
       )}
     </div>

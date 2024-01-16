@@ -9,7 +9,6 @@ import { ArrowRight } from "lucide-react";
 import PosterList from "~/app/seminar-award/_components/PosterList";
 import ImageLibrary from "~/app/seminar-award/_components/ImageLibrary";
 
-import "~/styles/seminar.css";
 import Particles from "~/components/Praticles";
 
 const heading = "Techshare Seminar";
@@ -34,7 +33,7 @@ export default function Home() {
     <>
       <Particles />
       {trailer ? (
-        <div className="flex h-full w-full flex-col items-center gap-4 pb-8">
+        <div className="flex h-screen w-screen flex-col items-center gap-4 overflow-hidden pb-4">
           <header className="flex w-full items-center justify-between px-3">
             <motion.div
               initial={{
@@ -86,7 +85,7 @@ export default function Home() {
               ))}
             </motion.h1>
           </header>
-          <h1 className="animate-character font-style mb-4 mt-2 text-center text-[30px] font-extrabold uppercase leading-none tracking-[10px]">
+          <h1 className="animate-character font-style my-2 text-center text-[30px] font-extrabold uppercase leading-none tracking-[10px]">
             Best Seminar Presentation Award
           </h1>
           {/* <h1 className="tracking-[20px] font-extrabold text-[54px] uppercase animate-character text-center mt-2 font-style leading-none">
@@ -134,7 +133,7 @@ export default function Home() {
                 opacity: 0,
               }}
               animate={{
-                y: 10,
+                y: 0,
                 opacity: 1,
               }}
               transition={{
@@ -144,7 +143,7 @@ export default function Home() {
               whileHover={{
                 scale: 1.1,
               }}
-              className="glow-effect relative mt-auto flex h-10 w-16 items-center justify-center gap-2 rounded-lg bg-slate-200 text-2xl font-bold text-slate-900"
+              className="glow-effect relative mt-auto flex h-6 w-16 items-center justify-center gap-2 rounded-lg bg-slate-200 text-2xl font-bold text-slate-900"
             >
               <div
                 // href={"/miss"}
@@ -174,7 +173,7 @@ export default function Home() {
                 opacity: 0,
               }}
               animate={{
-                y: 10,
+                y: 0,
                 opacity: 1,
               }}
               transition={{
@@ -185,7 +184,7 @@ export default function Home() {
                 scale: 1.1,
               }}
               onClick={handleStartClick}
-              className="glow-effect relative mt-auto flex h-10 w-16 items-center justify-center gap-2 rounded-lg bg-slate-200 text-2xl font-bold text-slate-900"
+              className="glow-effect relative mt-auto flex h-6 w-16 items-center justify-center gap-2 rounded-lg bg-slate-200 text-2xl font-bold text-slate-900"
             >
               <div
                 // href={"/miss"}
@@ -235,7 +234,7 @@ export default function Home() {
               className="flex h-full w-full items-center justify-center text-[#e0ccbb]"
               onClick={() => setTrailer(true)}
             >
-              <ArrowRight className="h-20 w-40 " />
+              <ArrowRight className="h-20 w-40" />
               <svg className="glow-container">
                 <rect
                   pathLength="100"

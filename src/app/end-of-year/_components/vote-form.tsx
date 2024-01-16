@@ -1,8 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { set } from "date-fns";
-import { ca } from "date-fns/locale";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -30,30 +28,43 @@ import { Label } from "~/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { toast } from "~/components/ui/use-toast";
 import { vote } from "~/server/vote";
+import { cn } from "~/lib/utils";
 
-const TEAMS = [
+export const TEAMS = [
   {
     id: "1",
     image: "",
-    title: "ahihi",
-    description: "ahuuhuhuh",
+    title: "Mua ba le",
+    description: "Deloitte Vietnam",
   },
   {
     id: "2",
     image: "",
-    title: "ahihi",
-    description: "ahuuhuhuh",
+    title: "Nhay dien",
+    description: "Shirai",
   },
   {
     id: "3",
     image: "",
-    title: "ahihi",
-    description: "ahuuhuhuh",
+    title: "Nhay khung",
+    description: "Tas",
   },
   {
     id: "4",
     image: "",
-    title: "ahihi",
+    title: "Thoi sao",
+    description: "ahuuhuhuh",
+  },
+  {
+    id: "5",
+    image: "",
+    title: "Xam xi",
+    description: "ahuuhuhuh",
+  },
+  {
+    id: "6",
+    image: "",
+    title: "Dien hai",
     description: "ahuuhuhuh",
   },
 ];
@@ -65,8 +76,6 @@ const FormSchema = z.object({
 });
 
 export function VoteForm() {
-  const [isOpenDialog, setIsOpenDialog] = useState(false);
-  const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -75,24 +84,19 @@ export function VoteForm() {
     },
   });
 
-  async function onSubmit() {
-    const { type } = form.watch();
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       setIsLoading(true);
-      await vote({
-        voteId: type,
-        username,
-      });
+      await vote(data.type);
       toast({
         title: "Bình chọn thành công!",
         description: (
           <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-            <code className="text-white">Tiết mục số {type}</code>
+            <code className="text-white">Tiết mục số {data.type}</code>
           </pre>
         ),
       });
       setIsLoading(false);
-      setIsOpenDialog(false);
     } catch (error) {
       toast({
         title: "Bình chọn thất bại!",
@@ -104,7 +108,7 @@ export function VoteForm() {
     <>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(() => setIsOpenDialog(true))}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="container mx-auto space-y-6"
         >
           <FormField
@@ -116,10 +120,10 @@ export function VoteForm() {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4"
+                    className="grid grid-cols-1 gap-3 md:grid-cols-3"
                   >
                     {TEAMS.map((team) => (
-                      <FormItem key={team.id} className="relative h-[300px]">
+                      <FormItem key={team.id} className="relative h-[150px]">
                         <FormControl>
                           <RadioGroupItem
                             value={team.id}
@@ -143,51 +147,26 @@ export function VoteForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="mx-auto flex">
-            Bình chọn
-          </Button>
-          <Dialog
-            open={isOpenDialog}
-            onOpenChange={(open) => setIsOpenDialog(open)}
+          <button
+            type="submit"
+            className="glow-effect relative mx-auto block h-10 w-32 rounded-lg bg-blue-500 font-bold text-white hover:bg-blue-600"
           >
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Xác nhận bình chọn</DialogTitle>
-                <DialogDescription>
-                  Bạn có chắc chắn với lựa chọn của mình không?
-                </DialogDescription>
-              </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="name" className="text-right">
-                    Họ và tên
-                  </Label>
-                  <Input
-                    id="name"
-                    value={username}
-                    className="col-span-3"
-                    placeholder="Nhập họ và tên"
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </div>
-              </div>
-              <DialogFooter>
-                <Button
-                  type="submit"
-                  onClick={onSubmit}
-                  className="relative w-28"
-                >
-                  {isLoading ? (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-5 w-5 animate-spin rounded-full border-2 border-white"></div>
-                    </div>
-                  ) : (
-                    "Bình chọn"
-                  )}
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+            <div className="flex h-full w-full items-center justify-center">
+              <p>Bình chọn</p>
+              <svg className="glow-container">
+                <rect
+                  pathLength="100"
+                  strokeLinecap="round"
+                  className={cn("glow-blur stroke-[rgb(37 99 235)]")}
+                ></rect>
+                <rect
+                  pathLength="100"
+                  strokeLinecap="round"
+                  className={cn("glow-line stroke-[rgb(37 99 235)]")}
+                ></rect>
+              </svg>
+            </div>
+          </button>
         </form>
       </Form>
     </>

@@ -1,4 +1,6 @@
+import Header from "~/app/end-of-year/_components/header";
 import { Hero } from "~/app/end-of-year/_components/hero";
+import CardList from "~/app/end-of-year/result/_components/card-list";
 import db from "~/lib/db";
 
 export default async function VotingResultPage() {
@@ -6,8 +8,10 @@ export default async function VotingResultPage() {
 
   return (
     <section className="space-y-4 px-5 pb-20">
+      <Header />
       <Hero headingContent="kết quả bình chọn" isShowParticles={false} />
-      <p>{JSON.stringify(record)}</p>
+      <CardList />
+      {/* <p>{JSON.stringify(record)}</p> */}
     </section>
   );
 }
