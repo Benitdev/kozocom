@@ -1,4 +1,3 @@
-import { set } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -15,7 +14,6 @@ type Props = {
 };
 
 function PosterList({ showResult, showOne, starting, showFinal }: Props) {
-  console.log(showFinal);
   const [showTwo, setShowTwo] = useState(false);
   const [showResultDelay, setShowResultDelay] = useState(false);
   const [changeLayout, setChangeLayout] = useState(false);
@@ -95,7 +93,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
       className={cn(
         `grid shrink-0 grid-cols-4 px-10 ${
           !changeLayout ? "" : "h-3/5"
-        } w-[90%] max-w-5xl gap-x-6 gap-y-4 xl:max-w-7xl ${
+        } w-[90%] max-w-5xl gap-x-6 gap-y-4 2xl:max-w-7xl ${
           showResultDelay ? "h-[55dvh]" : "h-[69dvh]"
         }`,
         {
@@ -449,7 +447,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                 opacity: 0,
               }}
               animate={{
-                x: 0,
+                x: "50%",
                 y: 0,
                 opacity: 1,
               }}
@@ -488,7 +486,8 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
           }}
           animate={{
             y: 0,
-            x: 0,
+            x: showResult ? 0 : "50%",
+
             opacity: 1,
           }}
           transition={{
@@ -642,7 +641,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
             }}
             animate={{
               y: 0,
-              x: 0,
+              x: showResult ? 0 : "50%",
               opacity: 1,
             }}
             exit={{

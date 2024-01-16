@@ -85,8 +85,8 @@ export default function Home() {
               ))}
             </motion.h1>
           </header>
-          <h1 className="animate-character font-style my-2 text-center text-[30px] font-extrabold uppercase leading-none tracking-[10px]">
-            Best Seminar Presentation Award
+          <h1 className="animate-character font-style my-2 text-center text-2xl font-extrabold uppercase leading-none tracking-[5px]">
+            Best Seminar Presentation Award 3rd & 4th Quarter 2023
           </h1>
           {/* <h1 className="tracking-[20px] font-extrabold text-[54px] uppercase animate-character text-center mt-2 font-style leading-none">
           All Rounder
