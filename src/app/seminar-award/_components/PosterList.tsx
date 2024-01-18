@@ -286,7 +286,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
               duration: 1,
               type: "easeIn",
             }}
-            className="rounded-xl bg-gray-900/70"
+            className="relative rounded-xl bg-gray-900/70"
           >
             <div
               className={`relative z-[999] overflow-hidden rounded-xl ${
@@ -355,25 +355,11 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
                 className="absolute -inset-1 z-10"
               >
                 <div style={{ perspective: "1000px" }}>
-                  <CongratulationParticles id="0" />
+                  <CongratulationParticles />
                 </div>
                 <div className="card-shadow !opacity-30"></div>
               </motion.div>
             )}
-            {/* {showOne && (
-            <motion.div
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                y: 30,
-                opacity: 1,
-              }}
-              className="text-center  font-bold tracking-widest text-[#e0ccbb]"
-            >
-              Nhất quí 3
-            </motion.div>
-          )} */}
           </motion.div>
         )}
         {!showResult ? (

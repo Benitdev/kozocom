@@ -208,7 +208,7 @@ export default function Home() {
           )}
         </div>
       ) : (
-        <div className="relative h-screen">
+        <div className="relative h-screen overflow-hidden">
           <ImageLibrary />
           <motion.button
             initial={{
