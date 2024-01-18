@@ -13,7 +13,7 @@ export default async function EndOfYearPage() {
 
   const res = await db.vote.findFirst({
     where: {
-      userId: session.userId,
+      userId: session.user.userId,
     },
   });
 

@@ -33,39 +33,27 @@ import { cn } from "~/lib/utils";
 export const TEAMS = [
   {
     id: "1",
-    image: "",
-    title: "Mua ba le",
-    description: "Deloitte Vietnam",
+    image: "/images/js.png",
+    title: "Guitar - Basket case & Costume - Let it go & Dance - 国道508号線",
+    description: "Japan Team",
   },
   {
     id: "2",
-    image: "",
-    title: "Nhay dien",
-    description: "Shirai",
+    image: "/images/tas.jpg",
+    title: "Mash-up - No need to rush & Tet song ",
+    description: "Tas Team",
   },
   {
     id: "3",
-    image: "",
-    title: "Nhay khung",
-    description: "Tas",
+    image: "/images/big.jpg",
+    title: "Dance - Totally clueless",
+    description: "Big Bang Team",
   },
   {
     id: "4",
-    image: "",
-    title: "Thoi sao",
-    description: "ahuuhuhuh",
-  },
-  {
-    id: "5",
-    image: "",
-    title: "Xam xi",
-    description: "ahuuhuhuh",
-  },
-  {
-    id: "6",
-    image: "",
-    title: "Dien hai",
-    description: "ahuuhuhuh",
+    image: "/images/hau.jpg",
+    title: "Fluting - Lost and Adrift",
+    description: "Ha Minh Hau (Entry's member)",
   },
 ];
 
@@ -120,7 +108,7 @@ export function VoteForm() {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="grid grid-cols-1 gap-3 md:grid-cols-3"
+                    className="grid grid-cols-1 gap-3 lg:grid-cols-2"
                   >
                     {TEAMS.map((team) => (
                       <FormItem key={team.id} className="relative h-[150px]">
@@ -147,26 +135,46 @@ export function VoteForm() {
               </FormItem>
             )}
           />
-          <button
-            type="submit"
-            className="glow-effect relative mx-auto block h-10 w-32 rounded-lg bg-blue-500 font-bold text-white hover:bg-blue-600"
-          >
-            <div className="flex h-full w-full items-center justify-center">
-              <p>Bình chọn</p>
-              <svg className="glow-container">
-                <rect
-                  pathLength="100"
-                  strokeLinecap="round"
-                  className={cn("glow-blur stroke-[rgb(37 99 235)]")}
-                ></rect>
-                <rect
-                  pathLength="100"
-                  strokeLinecap="round"
-                  className={cn("glow-line stroke-[rgb(37 99 235)]")}
-                ></rect>
-              </svg>
+          {!isLoading ? (
+            <button
+              type="submit"
+              className="glow-effect relative mx-auto block h-10 w-40 rounded-lg bg-blue-500 font-bold text-white hover:bg-blue-600"
+            >
+              <div className="flex h-full w-full items-center justify-center">
+                <p>Bình chọn</p>
+                <svg className="glow-container">
+                  <rect
+                    pathLength="100"
+                    strokeLinecap="round"
+                    className={cn("glow-blur stroke-[rgb(37 99 235)]")}
+                  ></rect>
+                  <rect
+                    pathLength="100"
+                    strokeLinecap="round"
+                    className={cn("glow-line stroke-[rgb(37 99 235)]")}
+                  ></rect>
+                </svg>
+              </div>
+            </button>
+          ) : (
+            <div className="glow-effect relative mx-auto block h-10 w-40 rounded-lg bg-blue-500 font-bold text-white hover:bg-blue-600">
+              <div className="flex h-full w-full items-center justify-center">
+                <p>Đang bình chọn...</p>
+                <svg className="glow-container">
+                  <rect
+                    pathLength="100"
+                    strokeLinecap="round"
+                    className={cn("glow-blur stroke-[rgb(37 99 235)]")}
+                  ></rect>
+                  <rect
+                    pathLength="100"
+                    strokeLinecap="round"
+                    className={cn("glow-line stroke-[rgb(37 99 235)]")}
+                  ></rect>
+                </svg>
+              </div>
             </div>
-          </button>
+          )}
         </form>
       </Form>
     </>

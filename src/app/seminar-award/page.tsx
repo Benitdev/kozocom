@@ -230,7 +230,6 @@ export default function Home() {
             className="glow-effect absolute bottom-20 left-1/2 z-[999] h-20 w-52 rounded-lg"
           >
             <div
-              // href={"/miss"}
               className="flex h-full w-full items-center justify-center text-[#e0ccbb]"
               onClick={() => setTrailer(true)}
             >

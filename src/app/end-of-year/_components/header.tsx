@@ -44,7 +44,7 @@ export default function Header() {
         transition={{
           duration: 1,
         }}
-        className="text-jump my-1 space-x-2 text-[26px] font-extrabold"
+        className="animate-character my-1 space-x-2 text-[26px] font-extrabold"
       >
         {heading.split("").map((char, index) => (
           <span
