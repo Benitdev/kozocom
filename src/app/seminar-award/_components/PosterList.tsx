@@ -730,7 +730,7 @@ function PosterList({ showResult, showOne, starting, showFinal }: Props) {
               className="text-center  font-bold tracking-widest text-[#e0ccbb]"
             >
               Giải nhì
-            </motion.div>
+            </motion.div> hi
           )} */}
           </motion.div>
         )}

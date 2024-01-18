@@ -1,28 +1,23 @@
 "use client";
 
-import { set } from "date-fns";
 import { useState } from "react";
 import Header from "~/app/end-of-year/_components/header";
+import LuckyDraw from "~/app/lucky-draw/_component/lucky-draw";
 import { Button } from "~/components/ui/button";
 import { SparklesCore } from "~/components/ui/sparktles";
 import { Spotlight } from "~/components/ui/sportlight";
 import { cn } from "~/lib/utils";
-
-const luckyNumbers = [
-  3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33,
-];
+import { motion } from "framer-motion";
 
 export default function EndOfYearPage() {
-  const [luckyNumber, setLuckyNumber] = useState(0);
+  const [randomState, setRandomState] = useState("idle");
   const handleClick = () => {
-    const intervalTimer = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * luckyNumbers.length);
-      setLuckyNumber(luckyNumbers[randomIndex]);
-    }, 50);
+    setRandomState("starting");
     setTimeout(() => {
-      clearInterval(intervalTimer);
+      setRandomState("stop");
     }, 15000);
   };
+
   return (
     <section>
       <Header />
@@ -53,18 +48,18 @@ export default function EndOfYearPage() {
             particleColor="#FFFFFF"
           />
           <div className="absolute inset-0 h-full w-full bg-black [mask-image:radial-gradient(400px_60%_at_center,transparent_50%,white)]"></div>
-          <div className="absolute inset-0 flex items-center justify-center text-[5vw] font-extrabold">
-            {luckyNumber}
-          </div>
+          <LuckyDraw randomState={randomState} />
         </div>
         {/* Radial gradient for the container to give a faded look */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
-        <Button
-          className="absolute bottom-0 left-1/2 mb-10 -translate-x-1/2 transform"
-          onClick={handleClick}
-        >
-          {"start"}
-        </Button>
+        {(randomState === "idle" || randomState === "stop") && (
+          <Button
+            className="absolute bottom-0 left-1/2 mb-10 -translate-x-1/2 transform"
+            onClick={handleClick}
+          >
+            {"start"}
+          </Button>
+        )}
       </div>
     </section>
   );
