@@ -36,3 +36,7 @@ export async function vote(voteId: string) {
     console.log(e);
   }
 }
+
+export async function removeVoteTable() {
+  await db.vote.deleteMany({});
+}

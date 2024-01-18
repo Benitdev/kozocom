@@ -10,6 +10,7 @@ import PosterList from "~/app/seminar-award/_components/PosterList";
 import ImageLibrary from "~/app/seminar-award/_components/ImageLibrary";
 
 import Particles from "~/components/Praticles";
+import { removeVoteTable } from "~/server/vote";
 
 const heading = "Techshare Seminar";
 
@@ -231,7 +232,7 @@ export default function Home() {
           >
             <div
               className="flex h-full w-full items-center justify-center text-[#e0ccbb]"
-              onClick={() => setTrailer(true)}
+              onClick={() => removeVoteTable()}
             >
               <ArrowRight className="h-20 w-40" />
               <svg className="glow-container">
