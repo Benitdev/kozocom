@@ -2,7 +2,7 @@ import { OAuthRequestError } from "@lucia-auth/oauth";
 import { cookies, headers } from "next/headers";
 import type { NextRequest } from "next/server";
 import { auth, googleAuth } from "~/lib/auth";
-import { sendMail } from "~/lib/resend";
+// import { sendMail } from "~/lib/resend";
 
 export const GET = async (request: NextRequest) => {
   const storedState = cookies().get("google_oauth_state")?.value;
@@ -19,7 +19,6 @@ export const GET = async (request: NextRequest) => {
     const { getExistingUser, googleUser, createUser } =
       await googleAuth.validateCallback(code);
 
-    console.log(googleUser);
     const getUser = async () => {
       const existingUser = await getExistingUser();
       if (existingUser) return existingUser;
@@ -30,12 +29,12 @@ export const GET = async (request: NextRequest) => {
           picture: googleUser.picture,
         },
       });
-      sendMail({
-        toMail: user.email,
-        data: {
-          name: user.name,
-        },
-      });
+      // sendMail({
+      //   toMail: user.email,
+      //   data: {
+      //     name: user.name,
+      //   },
+      // });
       return user;
     };
 
@@ -53,7 +52,7 @@ export const GET = async (request: NextRequest) => {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: "/end-of-year", // redirect to profile page
+        Location: "/end-of-year",
       },
     });
   } catch (e) {
