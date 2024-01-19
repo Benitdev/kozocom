@@ -7,7 +7,7 @@ const heading = "Year End Party";
 
 export default function Header() {
   return (
-    <header className="fixed left-0 top-0 z-[99] flex w-full items-center justify-between p-4 px-7">
+    <header className="fixed left-0 top-0 z-[99] flex w-full items-center justify-between p-4 md:px-7">
       <motion.div
         initial={{
           y: -30,
@@ -22,6 +22,7 @@ export default function Header() {
         transition={{
           duration: 1,
         }}
+        className="w-[100px] md:w-[200px]"
       >
         <Image
           src={"/custom-logo-company-white.png"}
@@ -44,7 +45,7 @@ export default function Header() {
         transition={{
           duration: 1,
         }}
-        className="animate-character my-1 space-x-2 text-[26px] font-extrabold"
+        className="animate-character my-1 space-x-1 text-base font-extrabold md:text-2xl lg:text-3xl"
       >
         {heading.split("").map((char, index) => (
           <span
