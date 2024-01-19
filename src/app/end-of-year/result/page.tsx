@@ -30,7 +30,7 @@ export default async function VotingResultPage() {
   return (
     <section className="flex h-screen flex-col space-y-4 overflow-hidden px-5 pb-5">
       <Header />
-      <Hero headingContent="kết quả bình chọn" isShowParticles={false} />
+      <Hero headingContent="voting results" isShowParticles={false} />
       <CardList groupedRecord={groupedRecord} />
     </section>
   );

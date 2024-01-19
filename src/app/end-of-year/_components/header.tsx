@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const heading = "Year End Party";
-
 export default function Header() {
   return (
     <header className="fixed left-0 top-0 z-[99] flex w-full items-center justify-between p-4 md:px-7">
@@ -31,7 +29,8 @@ export default function Header() {
           height={40}
         />
       </motion.div>
-      <motion.h1
+
+      <motion.div
         initial={{
           y: -30,
           x: 50,
@@ -45,19 +44,11 @@ export default function Header() {
         transition={{
           duration: 1,
         }}
-        className="animate-character my-1 space-x-1 text-base font-extrabold md:text-2xl lg:text-3xl"
+        className="heading-animation relative z-20 select-none text-center text-base font-bold uppercase text-white md:text-2xl lg:text-3xl"
       >
-        {heading.split("").map((char, index) => (
-          <span
-            key={index}
-            style={{
-              animationDelay: `calc(0.1s * ${index + 1})`,
-            }}
-          >
-            {char}
-          </span>
-        ))}
-      </motion.h1>
+        <h2 className="tracking-widest">Year End Party</h2>
+        <h2 className="absolute inset-0 tracking-widest">Year End Party</h2>
+      </motion.div>
     </header>
   );
 }

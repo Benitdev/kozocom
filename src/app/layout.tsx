@@ -1,6 +1,5 @@
 import { type Metadata } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Rubik_Burned } from "next/font/google";
 // import Footer from "~/components/layout/footer";
 // import Header from "~/components/layout/header";
 import ThemeProvider from "~/components/shared/theme-provider";
@@ -19,8 +18,9 @@ const fontSans = Inter({
   variable: "--font-sans",
 });
 
-const fontHeading = localFont({
-  src: "../assets/fonts/CalSans-SemiBold.woff2",
+const fontHeading = Rubik_Burned({
+  weight: "400",
+  subsets: ["latin"],
   variable: "--font-heading",
 });
 

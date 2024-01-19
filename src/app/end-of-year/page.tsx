@@ -1,11 +1,11 @@
 "use client";
 
-import { set } from "date-fns";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Header from "~/app/end-of-year/_components/header";
 import { Hero } from "~/app/end-of-year/_components/hero";
 import { VoteForm } from "~/app/end-of-year/_components/vote-form";
+import FireWork from "~/components/shared/firework";
 
 export default function EndOfYearPage() {
   const router = useRouter();
@@ -54,11 +54,14 @@ export default function EndOfYearPage() {
   return (
     <section className="space-y-4 px-5 pb-20">
       <Header />
-      <Hero headingContent="bình chọn tiết mục văn nghệ" />
+      <Hero
+        headingContent="vote on musical performances
+"
+      />
       {isLoading === "stopped" &&
         (isVoted ? (
-          <p className="text-center text-xl font-bold uppercase text-blue-400">
-            Cám ơn bạn đã bình chọn!
+          <p className="text-center text-sm font-bold uppercase text-blue-400 md:text-base lg:text-xl">
+            THANK YOU FOR VOTING!
           </p>
         ) : (
           <VoteForm />

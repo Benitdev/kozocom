@@ -21,7 +21,7 @@ export default function EndOfYearPage() {
   return (
     <section>
       <Header />
-      <div className="relative flex h-screen flex-col overflow-hidden py-[8rem] bg-dot-white/20">
+      <div className="relative flex h-screen flex-col overflow-hidden py-[6rem] bg-dot-white/20">
         <Spotlight
           className="left-0 top-40 animate-spotlight md:-top-24 md:left-60"
           fill="#3889ec"
@@ -30,10 +30,31 @@ export default function EndOfYearPage() {
           className="animate-spotlight-reverse right-0 top-40 md:-top-24 md:right-60"
           fill="#3889ec"
         />
-        <div className="heading-animation relative z-20 text-center text-xl font-bold uppercase text-white md:text-3xl lg:text-5xl">
-          <h2>{"lucky draw"}</h2>
-          <h2 className="absolute inset-0">{"lucky-draw"}</h2>
-        </div>
+        <motion.h1
+          initial={{
+            y: -20,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          className="animate-character mx-auto select-none space-x-1 text-center font-heading text-xl font-extrabold uppercase !leading-[1.5] md:text-3xl lg:text-5xl"
+        >
+          {"lucky draw".split("").map((char, index) => (
+            <span
+              key={index}
+              style={{
+                animationDelay: `calc(0.1s * ${index + 1})`,
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </motion.h1>
         <div className={cn("relative mx-auto w-full flex-1")}>
           <div className="absolute left-1/2 top-0 h-[2px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
           <div className="absolute left-1/2 top-0  h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />

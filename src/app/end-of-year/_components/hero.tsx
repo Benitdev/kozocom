@@ -1,6 +1,9 @@
+"use client";
+
 import { SparklesCore } from "~/components/ui/sparktles";
 import { Spotlight } from "~/components/ui/sportlight";
 import { cn } from "~/lib/utils";
+import { motion } from "framer-motion";
 
 type Props = {
   headingContent: string;
@@ -9,15 +12,36 @@ type Props = {
 
 export function Hero({ headingContent, isShowParticles = true }: Props) {
   return (
-    <div className="relative pt-[10rem] bg-dot-white/20">
+    <div className="relative pt-[5rem] bg-dot-white/20">
       <Spotlight
         className="left-0 top-40 md:-top-20 md:left-60"
         fill="rgb(14 165 233)"
       />
-      <div className="heading-animation relative z-20 text-center text-xl font-bold uppercase text-white md:text-3xl lg:text-5xl">
-        <h2>{headingContent}</h2>
-        <h2 className="absolute inset-0">{headingContent}</h2>
-      </div>
+      <motion.h1
+        initial={{
+          y: -20,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1,
+        }}
+        className="animate-character mx-auto select-none space-x-1 text-center font-heading text-xl font-extrabold uppercase !leading-[1.5] md:text-3xl lg:text-5xl"
+      >
+        {headingContent.split("").map((char, index) => (
+          <span
+            key={index}
+            style={{
+              animationDelay: `calc(0.1s * ${index + 1})`,
+            }}
+          >
+            {char}
+          </span>
+        ))}
+      </motion.h1>
       <div
         className={cn("relative h-48 w-full", {
           "h-2": !isShowParticles,

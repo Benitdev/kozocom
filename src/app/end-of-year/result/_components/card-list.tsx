@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { TEAMS } from "~/app/end-of-year/_components/vote-form";
 import VoteItem from "~/app/end-of-year/_components/vote-item";
-import CongratulationParticles from "~/app/seminar-award/_components/CongratulationParticles";
+import FireWork from "~/components/shared/firework";
 import { cn } from "~/lib/utils";
 
 type Props = {
@@ -148,17 +148,15 @@ export default function CardList({ groupedRecord }: Props) {
         </div>
       </motion.button>
       {isShowingResult === "stop" && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 0.5,
-          }}
-          style={{ perspective: "1000px" }}
-          className="absolute -inset-10 -translate-y-1/3"
-        >
-          <CongratulationParticles id="lucky-draw" />
-        </motion.div>
+        <FireWork id={"canvas-left"} className="fixed -left-[10%]" />
+      )}
+      {isShowingResult === "stop" && (
+        <FireWork id={"canvas-right"} className="fixed -right-[10%]" />
+      )}
+      {isShowingResult === "stop" && (
+        <div className="absolute inset-0 flex -translate-y-1/2 justify-center">
+          <FireWork id={"canvas-center"} />
+        </div>
       )}
     </div>
   );

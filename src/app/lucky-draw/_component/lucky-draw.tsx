@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CongratulationParticles from "~/app/seminar-award/_components/CongratulationParticles";
 import { motion } from "framer-motion";
+import FireWork from "~/components/shared/firework";
 
 export default function LuckyDraw({ randomState }: { randomState: string }) {
   const [luckyNumber, setLuckyNumber] = useState(0);
@@ -62,17 +63,15 @@ export default function LuckyDraw({ randomState }: { randomState: string }) {
         {luckyNumber}
       </motion.div>
       {randomState === "stop" && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 0.5,
-          }}
-          style={{ perspective: "1000px" }}
-          className="absolute -top-20 h-[500px] w-[500px]"
-        >
-          <CongratulationParticles id="lucky-draw" />
-        </motion.div>
+        <FireWork id={"canvas-left"} className="absolute left-0" />
+      )}
+      {randomState === "stop" && (
+        <FireWork id={"canvas-right"} className="absolute right-0" />
+      )}
+      {randomState === "stop" && (
+        <div className="absolute inset-0 flex -translate-y-1/2 justify-center">
+          <FireWork id={"canvas-center"} />
+        </div>
       )}
     </div>
   );
