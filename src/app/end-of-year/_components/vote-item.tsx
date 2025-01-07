@@ -24,7 +24,6 @@ type Props = {
 };
 
 export default function VoteItem({
-  id,
   image,
   title,
   description,

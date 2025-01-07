@@ -83,11 +83,11 @@
 
 .heading-animation h2:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 2px #3889ec;
+  -webkit-text-stroke: 2px #ffaf37;
 }
 
 .heading-animation h2:nth-child(2) {
-  color: #9be0f5;
+  color: #ffd698;
   animation: animate 4s ease-in-out infinite;
 }
 
@@ -164,11 +164,11 @@
   width: 70%;
   background-image: linear-gradient(
     to right,
-    rgb(89, 136, 89),
-    rgb(73, 162, 153),
-    rgb(118, 118, 203),
-    rgb(189, 113, 189),
-    rgb(197, 109, 109)
+    rgb(255, 238, 4),
+    rgb(221, 184, 61),
+    rgb(207, 134, 25),
+    rgb(255, 102, 0),
+    rgb(240, 223, 223)
   );
   animation: colorAnimation 1s infinite;
 }
@@ -177,51 +177,51 @@
   0% {
     background-image: linear-gradient(
       to right,
-      rgb(73, 162, 153),
-      rgb(118, 118, 203),
-      rgb(189, 113, 189),
-      rgb(197, 109, 109),
-      rgb(89, 136, 89)
+      rgb(221, 184, 61),
+      rgb(207, 134, 25),
+      rgb(255, 102, 0),
+      rgb(255, 188, 4),
+      rgb(240, 223, 223)
     );
   }
   20% {
     background-image: linear-gradient(
       to right,
-      rgb(118, 118, 203),
-      rgb(189, 113, 189),
-      rgb(197, 109, 109),
-      rgb(89, 136, 89),
-      rgb(73, 162, 153)
+      rgb(255, 188, 4),
+      rgb(240, 223, 223),
+      rgb(221, 184, 61),
+      rgb(207, 134, 25),
+      rgb(255, 102, 0)
     );
   }
   40% {
     background-image: linear-gradient(
       to right,
-      rgb(189, 113, 189),
-      rgb(197, 109, 109),
-      rgb(89, 136, 89),
-      rgb(73, 162, 153),
-      rgb(118, 118, 203)
+      rgb(240, 223, 223),
+      rgb(221, 184, 61),
+      rgb(255, 188, 4),
+      rgb(207, 134, 25),
+      rgb(255, 102, 0)
     );
   }
   60% {
     background-image: linear-gradient(
       to right,
-      rgb(197, 109, 109),
-      rgb(89, 136, 89),
-      rgb(73, 162, 153),
-      rgb(118, 118, 203),
-      rgb(189, 113, 189)
+      rgb(221, 184, 61),
+      rgb(240, 223, 223),
+      rgb(207, 134, 25),
+      rgb(255, 102, 0),
+      rgb(255, 188, 4)
     );
   }
   100% {
     background-image: linear-gradient(
       to right,
-      rgb(89, 136, 89),
-      rgb(73, 162, 153),
-      rgb(118, 118, 203),
-      rgb(189, 113, 189),
-      rgb(197, 109, 109)
+      rgb(255, 188, 4),
+      rgb(221, 184, 61),
+      rgb(207, 134, 25),
+      rgb(240, 223, 223),
+      rgb(255, 102, 0)
     );
   }
 }

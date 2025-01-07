@@ -15,7 +15,7 @@ export function Hero({ headingContent, isShowParticles = true }: Props) {
     <div className="relative pt-[5rem] bg-dot-white/20">
       <Spotlight
         className="left-0 top-40 md:-top-20 md:left-60"
-        fill="rgb(14 165 233)"
+        fill="#f5b35d"
       />
       <motion.h1
         initial={{
@@ -43,14 +43,14 @@ export function Hero({ headingContent, isShowParticles = true }: Props) {
         ))}
       </motion.h1>
       <div
-        className={cn("relative h-48 w-full", {
+        className={cn("relative h-36 w-full", {
           "h-2": !isShowParticles,
         })}
       >
-        <div className="absolute left-1/2 top-0 h-[2px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
-        <div className="absolute left-1/2 top-0  h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
-        <div className="absolute inset-x-[50%] top-0 h-[5px] w-1/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm" />
-        <div className="absolute inset-x-[50%] top-0 h-px w-1/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
+        <div className="absolute left-1/2 top-0 h-[2px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#f5b35d] to-transparent blur-sm" />
+        <div className="absolute left-1/2 top-0  h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#f5b35d] to-transparent" />
+        <div className="absolute inset-x-[50%] top-0 h-[5px] w-1/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#ffdc9c] to-transparent blur-sm" />
+        <div className="absolute inset-x-[50%] top-0 h-px w-1/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#ecad38] to-transparent" />
         {isShowParticles && (
           <>
             <SparklesCore
@@ -61,7 +61,7 @@ export function Hero({ headingContent, isShowParticles = true }: Props) {
               className="h-full w-full"
               particleColor="#FFFFFF"
             />
-            <div className="absolute inset-0 h-full w-full bg-black [mask-image:radial-gradient(400px_250px_at_top,transparent_50%,white)]"></div>
+            <div className="absolute inset-0 h-full w-full bg-black [mask-image:radial-gradient(400px_70px_at_top,transparent_50%,white)]"></div>
           </>
         )}
       </div>
