@@ -122,6 +122,21 @@
   }
 }
 
+/* Tile Selection Header - Blue Theme */
+.tile-selection-heading {
+  position: relative;
+}
+
+.tile-selection-heading h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #3b82f6;
+}
+
+.tile-selection-heading h2:nth-child(2) {
+  color: #93c5fd;
+  animation: animate 4s ease-in-out infinite;
+}
+
 @keyframes spotlight-reverse {
   0% {
     opacity: 0;
