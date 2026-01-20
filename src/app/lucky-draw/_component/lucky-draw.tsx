@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import CongratulationParticles from "~/app/seminar-award/_components/CongratulationParticles";
 import { motion } from "framer-motion";
 import FireWork from "~/components/shared/firework";
 
@@ -40,7 +39,7 @@ export default function LuckyDraw({ randomState }: { randomState: string }) {
   useEffect(() => {
     localStorage.setItem(
       "luckyNumbers",
-      JSON.stringify(Array.from({ length: 100 }, (_, i) => i + 1))
+      JSON.stringify(Array.from({ length: 25 }, (_, i) => i + 1))
     );
   }, []);
   return (

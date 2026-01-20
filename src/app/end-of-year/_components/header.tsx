@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function Header() {
   return (
@@ -22,12 +21,12 @@ export default function Header() {
         }}
         className="w-[100px] md:w-[200px]"
       >
-        <Image
+        {/* <Image
           src={"/custom-logo-company-white.png"}
           alt=""
           width={200}
           height={40}
-        />
+        /> */}
       </motion.div>
 
       <motion.div
