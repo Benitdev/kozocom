@@ -43,7 +43,7 @@ export default function LuckyDraw({ randomState }: { randomState: string }) {
     );
   }, []);
   return (
-    <div className="absolute inset-0 flex items-center justify-center text-[9vw] font-extrabold">
+    <div className="fixed inset-0 flex items-center justify-center text-[9vw] font-extrabold">
       <motion.div
         {...(randomState === "stop"
           ? {
